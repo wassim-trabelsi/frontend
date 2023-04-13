@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { Grid, Typography } from "@material-ui/core";
 import { CircularProgress } from "@mui/material";
 import MovieCard from "./movieCard";
+import { css } from '@emotion/css'
 
 const MovieList = ({ movieStore }) => {
 
@@ -41,6 +42,24 @@ const MovieList = ({ movieStore }) => {
   }
 
   return (
+    <div className={css`width: 100%;
+        margin: 0 auto;
+        height: 30vh;
+        overflow-x: hidden;
+        max-height: %;
+        overflow-y: auto;
+        position: center;
+        &::-webkit-scrollbar {
+          width: 10px;
+        }
+        &::-webkit-scrollbar-track {
+          background-color: #f1f1f1;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #888;
+          border-radius: 5px;
+        }
+      `}>
     <Grid container spacing={2}>
       {movieStore.popularMovies.map((movie) => (
         <Grid item xs={12} sm={6} md={4} lg={3} key={movie.id}>
@@ -48,6 +67,7 @@ const MovieList = ({ movieStore }) => {
         </Grid>
       ))}
     </Grid>
+    </div>
   );
 };
 
