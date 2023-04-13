@@ -5,26 +5,49 @@ import axios from "axios";
 const IMDB_API_KEY = process.env.REACT_APP_IMDB_API_KEY;
 const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${IMDB_API_KEY}&sort_by=popularity.desc`;
 
+class SyncStore {
+  loading = false;
+  constructor() {
+    makeAutoObservable(this);
+  }
+
+  updating() {
+    this.loading = true;
+  }
+
+  finished() {
+    this.loading = false;
+  }
+}
+
 class MovieStore {
   popularMovies = null
-  loading = null
+  SyncStore = new SyncStore();
 
   constructor() {
     makeAutoObservable(this);
   }
   
-  // write some code here to query the API
-  async fetchPopularMovies() {
-    try {
-      this.loading = true;
-      const response = await axios.get(API_URL);
-      this.popularMovies = response.data.results;
-    } catch (error) {
-      console.error("Error fetching popular movies:", error);
-    } finally {
-      this.loading = false;
-    }
+  update_movies(movies) {
+    this.popularMovies = movies;
   }
+
+  reset() {
+    this.popularMovies = null;
+  }
+
+
+  async fetchPopularMovies () {
+    this.SyncStore.updating();
+    await axios.get(API_URL).then((response) => {
+        this.update_movies(response.data.results);
+        this.SyncStore.finished();
+      })
+      .catch((error) => {
+        console.error("Error fetching popular movies:", error);
+        this.SyncStore.finished();
+      });}
+
 }
 
 export default MovieStore;

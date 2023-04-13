@@ -5,11 +5,12 @@ import { CircularProgress } from "@mui/material";
 import MovieCard from "./movieCard";
 
 const MovieList = ({ movieStore }) => {
+
   useEffect(() => {
     movieStore.fetchPopularMovies();
   }, [movieStore]);
 
-  if (movieStore.loading) {
+  if (movieStore.SyncStore.loading) {
     return (
       <div
         style={{

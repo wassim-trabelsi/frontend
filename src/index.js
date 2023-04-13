@@ -10,7 +10,6 @@ import MovieStore from "./stores/movie.store";
 const stores = {
   movieStore: new MovieStore(),
 };
-console.log("movieStore: ", stores.movieStore);
 ReactDOM.render(
   <React.StrictMode>
     <Provider {...stores}>
