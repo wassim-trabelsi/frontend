@@ -19,7 +19,7 @@ const App = () => {
         font-weight: bold;
         font-size: 1.5rem;
       `}>
-        Bienvenue dans Ask for movies
+        AskMovies
       </header>
       <main className={css`
         min-height: calc(100vh - 150px);
