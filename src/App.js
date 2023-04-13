@@ -1,5 +1,6 @@
 import React from "react";
 import { css } from '@emotion/css'
+import { Box } from "@mui/material";
 
 import MoviePage from "./components/pages/MoviePage";
 
@@ -25,7 +26,9 @@ const App = () => {
         min-height: calc(100vh - 150px);
         display: flex;
       `}>
-        <MoviePage />
+        <Box sx={{ p: 2 }}>
+          <MoviePage />
+        </Box>
       </main>
     </div>
   );

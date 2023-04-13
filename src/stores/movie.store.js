@@ -1,7 +1,8 @@
 import { makeAutoObservable } from "mobx";
 import axios from "axios";
 
-const IMDB_API_KEY = "YOUR_API_KEY";
+// Get IMDB API key from os environment variable
+const IMDB_API_KEY = process.env.REACT_APP_IMDB_API_KEY;
 const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${IMDB_API_KEY}&sort_by=popularity.desc`;
 
 class MovieStore {
