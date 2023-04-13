@@ -1,6 +1,7 @@
 import { inject, observer } from "mobx-react";
 import React, { useEffect } from "react";
-import { CircularProgress, Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
+import { CircularProgress } from "@mui/material";
 import MovieCard from "./movieCard";
 
 const MovieList = ({ movieStore }) => {
