@@ -7,6 +7,7 @@ const MainPage = () => {
     <div className={css`{
       position: relative,
       flex-grow: 1,
+      padding: 20px,
     }`}>
       <MovieList />
     </div>
