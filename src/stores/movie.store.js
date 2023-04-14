@@ -37,9 +37,10 @@ class MovieStore {
   }
 
 
-  async fetchPopularMovies () {
+  async fetchPopularMovies (frenchOnly) {
     this.SyncStore.updating();
-    await axios.get(API_URL).then((response) => {
+    const api_url = frenchOnly ? `${API_URL}&with_original_language=fr` : API_URL;
+    await axios.get(api_url).then((response) => {
         this.update_movies(response.data.results);
         this.SyncStore.finished();
       })

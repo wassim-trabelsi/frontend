@@ -5,11 +5,11 @@ import { CircularProgress } from "@mui/material";
 import MovieCard from "./movieCard";
 import { css } from '@emotion/css'
 
-const MovieList = ({ movieStore }) => {
+const MovieList = ({ movieStore, frenchOnly }) => {
 
   useEffect(() => {
-    movieStore.fetchPopularMovies();
-  }, [movieStore]);
+    movieStore.fetchPopularMovies(frenchOnly);
+  }, [movieStore, frenchOnly]);
 
   if (movieStore.SyncStore.loading) {
     return (
@@ -44,7 +44,7 @@ const MovieList = ({ movieStore }) => {
   return (
     <div className={css`width: 100%;
         margin: 0 auto;
-        height: 30vh;
+        height: 70vh;
         overflow-x: hidden;
         max-height: %;
         overflow-y: auto;

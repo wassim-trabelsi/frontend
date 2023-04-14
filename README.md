@@ -5,7 +5,7 @@ I always have a hard time deciding which movie to watch in the evening.
 ### Todo
 
 - a list of popular movies to pick from, with some info about them, --> MVP OK
-- among those movies, a way to select those available in French,
+- among those movies, a way to select those available in French --> MVP OK
 - some other people reviews, ideally one positive and one negative.
 
 ### Your mission
