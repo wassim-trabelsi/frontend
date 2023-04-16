@@ -48,6 +48,18 @@ class MovieStore {
         console.error("Error fetching popular movies:", error);
         this.SyncStore.finished();
       });}
+    
+    async fetchReviews(movieId) {
+      const api_url = `http://localhost/sentiment-analysis?movieID=${movieId}`
+      await axios.get(api_url).then((response) => {
+        return response.data.results;
+      })
+      .catch((error) => {
+        console.error("Error fetching reviews:", error);
+        return [];
+      });
+    }
+
 
 }
 

@@ -5,6 +5,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import MovieReviews from "./movieReviews";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MovieCard = ({ movie }) => {
-  const { title, overview, poster_path } = movie;
+  const { title, overview, poster_path, id } = movie;
   const classes = useStyles();
 
   return (
@@ -63,8 +65,8 @@ const MovieCard = ({ movie }) => {
       <CardContent className={classes.content}>
         <Typography className={classes.title}>{title}</Typography>
         <Typography className={classes.overview}>{overview}</Typography>
-        <Box className={classes.confidenceScore}>
-          
+        <Box >
+          <MovieReviews movieId={id} />
         </Box>
       </CardContent>
     </Card>

@@ -17,3 +17,11 @@ Build a web utility for Richard. This exercise is open-ended, you have room to b
 [themoviedb](https://developers.themoviedb.org/3/movies)
 [MobX](https://mobx.js.org/README.html)
 [Material-UI](https://material-ui.com/)
+
+### How to start
+
+- Clone this repo
+- Install dependencies with `npm install`
+- copy .env.example to .env and fill in the API key
+- Start the app with `npm start`
+- open localhost:3000 on your browser
